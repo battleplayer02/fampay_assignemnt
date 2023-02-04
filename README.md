@@ -7,6 +7,12 @@ This project is build using NodeJS and react.
 - Copy the .example.env to .env and specify your own creds to run. The example creds may not work.
 - The project is also on docker build the docker file.
 
+### Working
+- /search has params with which it returns the paginated data
+  - params{perPage,page,search,id}
+- In the frontend you can click on the page number to go to specific page and enter the search text
+- The backend calls the Youtebe Data API in every 10 sec for a predefined set of words and populate the database.
+- It also rotates the API Key if the fetch limit is exhausted for th
 
 ### Tech stack
 
@@ -14,6 +20,7 @@ This project is build using NodeJS and react.
 - Sequelize ORM
 - Postgres database
 - Tailwind CSS 
+- NodeJS 
 
 
 
