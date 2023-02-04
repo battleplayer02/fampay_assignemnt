@@ -16,7 +16,7 @@ function Search() {
             }
         )
         setData(rows)
-        setFilter({...filter, loading: 0, count, pages: parseInt(parseInt(filter.count) / parseInt(filter.perPage))})
+        setFilter({...filter, loading: 0, count, pages: parseInt(parseInt(count) / parseInt(filter.perPage))})
     }
 
     return (
