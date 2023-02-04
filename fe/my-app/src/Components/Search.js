@@ -7,8 +7,8 @@ function Search() {
     const {filter, setFilter, setData} = useContext(DataContext);
 
     async function handelSearch(page) {
-        setFilter({loading: 1, ...filter})
-        let {data: {rows}, data: {count}} = await axios.get("http://localhost:4000/search", {
+        setFilter({...filter,loading: 1})
+        let {data: {rows}, data: {count}} = await axios.get("/search", {
                 params:
                     {
                         ...filter, search, page

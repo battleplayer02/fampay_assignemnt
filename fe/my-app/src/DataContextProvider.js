@@ -8,11 +8,11 @@ function DataContextProvider({children}) {
     useEffect(function () {
         (async () => {
             setFilter({...filter, loading: 1})
-            let {data: {rows}, data: {count}} = await axios.get("http://localhost:4000/search", {
+            let {data: {rows}, data: {count}} = await axios.get("/search", {
                 params: filter
             })
             setData(rows);
-            setFilter({...filter, loading: 0, count,pages: parseInt(parseInt(count) / parseInt(filter.perPage))})
+            setFilter({...filter, loading: 0, count, pages: parseInt(parseInt(count) / parseInt(filter.perPage))})
         })()
     }, [])
     const [filter, setFilter] = useState({
