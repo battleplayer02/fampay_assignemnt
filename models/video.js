@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         title: DataTypes.STRING,
         description: DataTypes.STRING,
-        pubished_at: DataTypes.DATE,
+        published_at: DataTypes.DATE,
         thumbnail_urls: DataTypes.JSON,
         word_id:DataTypes.INTEGER
     }, {

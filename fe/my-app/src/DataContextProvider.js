@@ -1,17 +1,19 @@
-import {createContext, useContext, useEffect, useState} from "react";
+import {createContext, useEffect, useState} from "react";
 import axios from "axios";
 
 
 export const DataContext = createContext();
 
 function DataContextProvider({children}) {
-    useEffect(async () => {
-        setFilter({...filter, loading: 1})
-        let {data} = await axios.get("http://localhost:4000", {
-            params: filter
-        })
-        setData(data);
-        setFilter({...filter, loading: 0})
+    useEffect(function () {
+        (async () => {
+            setFilter({...filter, loading: 1})
+            let {data: {rows}, data: {count}} = await axios.get("http://localhost:4000/search", {
+                params: filter
+            })
+            setData(rows);
+            setFilter({...filter, loading: 0, count,pages: parseInt(parseInt(count) / parseInt(filter.perPage))})
+        })()
     }, [])
     const [filter, setFilter] = useState({
         perPage: 10,

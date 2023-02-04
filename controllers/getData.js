@@ -19,7 +19,7 @@ module.exports.getData = async (req, res) => {
         paginate = {
             ...paginate, where: {
                 title: {
-                    [db.Sequelize.Op.like]: `%${search}% `
+                    [db.Sequelize.Op.like]: `%${search}%`
                 }
             }
         }
@@ -30,6 +30,12 @@ module.exports.getData = async (req, res) => {
             }
         }
     }
-
-    res.json(await db.Video.findAll(paginate))
+    let data  = await db.Video.findAndCountAll({
+        ...paginate,
+        order: [
+            ["published_at", "DESC"],
+            ["id", "DESC"]
+        ]
+    });
+    res.json(data)
 }

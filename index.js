@@ -24,10 +24,14 @@ app.get("/clearData", async function (req, res) {
         "success": 1
     })
 })
-app.get("/", getData)
+
+app.use('/', express.static(path.join(__dirname, 'public')))
+app.get("/search", getData)
+
 
 
 app.listen(process.env.PORT, () => {
-    allInterval()
+    if (process.env.NODE_ENV != 'development')
+        allInterval()
     console.log(`FAMPAY Assignment running on ${process.env.PORT}!`)
 });

@@ -34,7 +34,7 @@ module.exports.allInterval = () => {
                             videoID: video.id.videoId,
                             title: video.snippet.title,
                             description: video.snippet.description,
-                            pubished_at: video.snippet.publishTime,
+                            published_at: video.snippet.publishTime,
                             thumbnail_urls: video.snippet.thumbnails,
                             word_id: i
                         })
