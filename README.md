@@ -5,7 +5,7 @@ This project is build using NodeJS and react.
 
 - The backend of the project extracts the data about some given words and in interval of 10 secoends it inserts that data into the postgres database. 
 - Copy the .example.env to .env and specify your own creds to run. The example creds may not work.
-- The project is also on docker build the docker file and 
+- The project is also on docker build the docker file.
 
 
 ### Tech stack
